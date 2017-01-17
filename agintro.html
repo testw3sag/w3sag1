@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>    
+<body>
+
+<!-- ng-app tell that <div> is the owner of an app -->
+<div ng-app="">
+    <!-- ng-model binds the input value to the variable "name" -->
+    <p>Name: <input type="text" ng-model="name"></p>
+    <!-- ng-bind binds the innerHTML of the <p> to "name" -->
+    <p ng-bind="name"></p>
+    <p style="color: red">{{name}}</p>
+    <p>First expression: {{ 5 + 5 }}</p>
+</div>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+First Name: <input type="text" ng-model="firstName"><br/>    
+Last Name: <input type="text" ng-model="lastName"><br/>
+Full Name: {{firstName + " " + lastName}}
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
+});
+</script>
+</body>
+</html>
